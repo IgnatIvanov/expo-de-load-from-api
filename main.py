@@ -6,12 +6,14 @@ import queue
 # import asyncio
 import requests
 from typing import List
+from dotenv import load_dotenv
 
 from data_combine import combine_pages
 from load_data import DownloadThread
 
-THREADS_COUNT = 2
-BASE_URL = 'http://5.159.103.79:4000/api/v1/logs'
+load_dotenv()
+THREADS_COUNT = int(os.getenv('THREADS_COUNT', 1))
+BASE_URL = str(os.getenv('BASE_URL', ''))
 SAVE_DIR = os.path.join(
     '.',
     'pages'
