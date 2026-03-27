@@ -1,0 +1,17 @@
+[project]
+name = "2026-03-27-load-from-api"
+version = "0.1.0"
+description = "Loading 2GB data from api"
+authors = [
+    {name = "Ignat Ivanov",email = "ignativanov1996@mail.ru"}
+]
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "2026"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
