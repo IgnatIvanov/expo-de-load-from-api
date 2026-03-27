@@ -1,1 +1,5 @@
 .venv/
+pages/
+**/__pycache__/
+
+*.csv
