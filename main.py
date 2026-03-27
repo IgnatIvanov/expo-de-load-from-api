@@ -5,6 +5,8 @@ import json
 import asyncio
 import requests
 
+from data_combine import combine_pages
+
 THREAD_COUNT = 1
 BASE_URL = 'http://5.159.103.79:4000/api/v1/logs'
 SAVE_DIR = os.path.join(
@@ -25,7 +27,7 @@ def main():
 
 
     # Сделать запросы
-    while page_id < last_id:
+    while page_id <= last_id:
         save_path = os.path.join(
             SAVE_DIR,
             f'{page_id}.json'
@@ -61,9 +63,9 @@ def main():
 
         print(f'Page loaded: {page_id}')
         page_id += 1
-        return
-    # TODO
-    # Добавить else
+        # if page_id == 151: page_id = last_id + 1
+    else:
+        combine_pages(SAVE_DIR)
 
     # Если нет 429, то добавить один доп поток
 
